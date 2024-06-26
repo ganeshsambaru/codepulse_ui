@@ -1,3 +1,4 @@
+import { ImageSelectorComponent } from './../../../shared/components/image-selector/image-selector.component';
 import { category } from './../../category/models/category.model';
 import { CategoryService } from './../../category/services/category.service';
 import { BlogPostService } from './../services/blog-post.service';
@@ -17,7 +18,8 @@ export class EditBlogpostComponent implements OnInit,OnDestroy{
   id:string | null=null;
   model?: BlogPost;
   categories$? : Observable<category[]>;
-  selectedCategories?: string[]
+  selectedCategories?: string[];
+  isImageSelectorVisible : boolean = false;
 
 
   routeSubscription?: Subscription;
@@ -95,6 +97,14 @@ export class EditBlogpostComponent implements OnInit,OnDestroy{
     });
 
    }
+  }
+
+  openImageSelector(): void {
+    this.isImageSelectorVisible = true;
+  }
+
+  closeImageSelector(): void {
+    this.isImageSelectorVisible = false;
   }
 
 
