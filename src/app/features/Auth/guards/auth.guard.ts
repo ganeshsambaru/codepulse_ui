@@ -30,7 +30,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
     } else {
       // token is still valid
-      if(user.roles.includes('writer')){
+      if(user.roles.includes('Writer')){
         return true;
       } else {
         alert('Unauthorized');
